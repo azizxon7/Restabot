@@ -33,7 +33,7 @@ async def init_contact(msg: types.Contact):
     await msg.reply(
         '📌 Lokatsiyangizni  yuboring \n(ammo avval telefoningizda \'Location\' (📍) funksiyasi yoniq ekanligiga ishonch hosil qiling)',
         reply_markup=buttons2)
-
+'''144050'''
 
 @dp.message_handler(content_types=[ContentType.LOCATION])
 async def init_location(msg: types.Location):
@@ -43,8 +43,8 @@ async def init_location(msg: types.Location):
 
 foods = ['🍜 Ko\'cha', '🥘 Tovuq sho\'rva', '🍲 Oddiy sho\'rva', '🍛 Mastava', '🍚 Osh', '🥣 Bosma', '🍱 Bishteks',
          '🍔 Bomba Burger', '🌭 Hot-Dog', '🌯 Lavash', '🌮 Shaurma', '🥪 Chizburger']
-l = {}
-
+l = []
+'''Assalamu alaykum! I am A'zamjon Usmonaliyev '''
 
 @dp.message_handler()
 async def b(message: types.message):
@@ -101,14 +101,16 @@ async def b(message: types.message):
     if message.text in foods:
         msg = message.text
         id = message.from_user.id
-        try:
+        '''try:
             print(l[id])
         except:
-            l[id] = []
-        l[id].append(msg)
-        await message.reply('Buyurtma \'Buyurtmalar tarixi\' bo\'limiga qo\'shildi')
-    if message.text == "🗂️ Buyurtmalar tarixi ":
-        await message.answer(f'Buyurtmalaringiz - {l[id]}')
+            l[id] = []'''
+        l.append(msg)
+        await message.reply(f'{msg} \'Buyurtmalar tarixi\' bo\'limiga qo\'shildi')
+    if message.text == "🗂️ Buyurtmalar tarixi" :
+        await message.reply('Buyurtmalaringiz:')
+        for i in l:
+            await message.answer(i)
 
 
 if __name__ == '__main__':
